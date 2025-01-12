@@ -49,7 +49,11 @@ dotsetup tmux.conf
 
 # vim
 dotsetup vimrc
-dotsetup vim
+# dotsetup vim ##backup the whole directory is deprecated##
+dotsetup vim/autoload/lightline/colorstheme/dark.vim
+dotsetup vim/autoload/plug.vim
+dotsetup vim/colors
+dotsetup vim/colors/solarized.vim
 
 # ssh
 dotsetup ssh/config
@@ -58,4 +62,9 @@ dotsetup ssh/config
 # setupmailbox sycamoremoon376@gmail.com
 dotsetup config/mutt/accounts/sycamoremoon376@gmail.com.muttrc
 dotsetup local/share/mutt-wizard/mutt-wizard.muttrc
+dotsetup config/mutt/muttrc
 dotsetup config/msmtp/config
+
+# gdb
+dotsetup gdbinit
+dotsetup config/gdb/kdump.macro
