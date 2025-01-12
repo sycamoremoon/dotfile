@@ -48,17 +48,17 @@ setupmailbox() {
 }
 
 # git
-dotsetup gitconfig
+# dotsetup gitconfig
 
 # shell
-dotsetup zshrc
+# dotsetup zshrc
 dotsetup sh_alias
 
 # tmux
 dotsetup tmux.conf
 
 # vim
-dotsetup vimrc
+# dotsetup vimrc
 # dotsetup vim ##backup the whole directory is deprecated##
 dotsetup vim/autoload/lightline/colorstheme/dark.vim
 dotsetup vim/autoload/plug.vim
