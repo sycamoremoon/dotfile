@@ -57,7 +57,7 @@ dotdiff() {
 	fi
 
 	diff "$full_pathfile" "$target_file"
-	if [ "$?" == 0 ]; then
+	if [[ "$?" == 0 ]]; then
 		echo "$full_pathfile and $target_file are the same"
 	fi
 }

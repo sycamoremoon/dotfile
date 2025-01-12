@@ -3,17 +3,41 @@
 FORCE=""
 [ "$1" = "-f" ] && FORCE="-f"
 
+dotsetup() {
+	local file="$1"
+	local actual_file="$HOME/.dotfile/$file"
+	local linked_file="$HOME/.$file"
+
+	if [ ! -f "$actual_file" ]; then
+		echo "$actual_file is not existed!"
+		return 1
+	fi
+
+	if [ -f "$linked_file" ]; then
+		diff "$actual_file" "$linked_file"
+		if [[ "$?" != 0 ]]; then
+			ln -s $FORCE $actual_file $linked_file
+		fi
+		if [[ "$?" != 0 ]]; then
+			echo "Stopped in linking $linked_file"
+			exit 1
+		fi
+	else
+		ln -s $FORCE $actual_file $linked_file
+	fi
+}
+
 # git
-ln -s $FORCE $HOME/.dotfile/gitconfig $HOME/.gitconfig
+dotsetup gitconfig
 
 # shell
-ln -s $FORCE $HOME/.dotfile/zshrc $HOME/.zshrc
-ln -s $FORCE $HOME/.dotfile/sh_alias $HOME/.sh_alias
+dotsetup zshrc
+# dotsetup sh_alias
 
 # tmux
-ln -s $FORCE $HOME/.dotfile/tmux.conf $HOME/.tmux.conf
+# dotsetup tmux.conf
 
 # vim
-ln -s $FORCE $HOME/.dotfile/vimrc $HOME/.vimrc
-ln -s $FORCE $HOME/.dotfile/vim $HOME/.vim
+# dotsetup vimrc
+# dotsetup vim
 
