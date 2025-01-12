@@ -35,13 +35,13 @@ lrwxrwxrwx 1 hack hack 38 Jan 13 02:01 /home/hack/.config/mutt/muttrc -> /home/h
 - `dotdiff` is used for see conflicts when porting from machine A to B
 
 ```
-# For example `dotfile .zshrc` failed
+# For example `dotlink .zshrc` failed
 linux> dotdiff .zshrc
 ```
 - Once you finished, record your settings to `setup.sh` for future using such as `dotsetup zshrc`,`dotsetup config/mutt/muttrc`. See `linux` branch's `setup.sh` for more examples.
 
 ```
-# Next time just run scripts on other machines
+# Next time just run script on other machines
 linux> ./.dotfile/setup.sh
 # if you are sure to overwrite the old dotfile
 linux> ./.dotfile/setup.sh -f 
