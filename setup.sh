@@ -48,7 +48,7 @@ setupmailbox() {
 }
 
 # git
-dotsetup gitconfig
+# dotsetup gitconfig
 
 # shell
 dotsetup zshrc
