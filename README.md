@@ -1,2 +1,5 @@
 # dotfile
-very frustrating to switch working environments back and forth
+Very frustrating to switch working environments back and forth
+
+*Nothing Specail*
+

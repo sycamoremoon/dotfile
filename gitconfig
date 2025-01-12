@@ -1,0 +1,9 @@
+[http]
+  sslBackend = openssl
+  proxy = 127.0.0.1:7890
+[user]
+  name = damon
+  email = sycamoremoon376@gmail.com
+[https]
+  proxy = 127.0.0.1:7890
+

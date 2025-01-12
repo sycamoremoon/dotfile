@@ -1,0 +1,42 @@
+########### ALIASING ################
+
+alias pip="pip3"
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+alias gs="git status"
+alias sl="ls"
+alias v="vim"
+alias p="pwd"
+alias cdts="cd arch/riscv/boot/dts/sophgo"
+
+########### ALIASING END ############
+
+chtags() {
+	local TAR=${1:-linux}
+	ln -sf "$HOME/database/ctags/${TAR}.tags" "$HOME/database/ctags/tags"
+	ls -l "$HOME/database/ctags/tags"
+}
+
+dotlink() {
+#	local file=${1:-zshrc}
+	local file="$1"
+	local dotfile_dir="$HOME/.dotfile"
+	local target_file="$dotfile_dir/$file"
+	local link_name="$PWD/$file"
+
+	if [ ! -f "$file" ]; then
+		echo "File is not existed!"
+		return 1
+	fi
+
+	if [[ "$file" == .* ]]; then
+		target_file="$dotfile_dir/${file:1}"
+	fi
+
+	mv "$file" "$target_file"
+	echo "Moved $file to $target_file"
+
+	ln -sf "$target_file" "$link_name"
+	ls -l $link_name
+}
