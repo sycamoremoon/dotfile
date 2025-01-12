@@ -1,7 +1,6 @@
 Host *
   ControlMaster auto
   ControlPersist 1h
-  ControlPath ~/.ssh/cm_socket/%r@%h:%p
   ServerAliveInterval 60
   ServerAliveCountMax 120
 
@@ -24,7 +23,7 @@ Host gentoo
 
 Host syca
   HostName 100.98.146.90
-  User damon
+  User hack
 
 Host santo
   HostName 10.0.6.21

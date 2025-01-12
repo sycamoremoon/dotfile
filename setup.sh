@@ -17,13 +17,23 @@ dotsetup() {
 		diff "$actual_file" "$linked_file"
 		if [[ "$?" != 0 ]]; then
 			ln -s $FORCE $actual_file $linked_file
-		fi
-		if [[ "$?" != 0 ]]; then
-			echo "Stopped in linking $linked_file"
-			exit 1
+			if [[ "$?" != 0 ]]; then
+				echo "Failed, stopped in $linked_file."
+				exit 1
+			else
+				if [[ "$FORCE" == "-f" ]]; then
+					echo "$linked_file forcely updated."
+					exit 0
+				fi
+			fi
 		fi
 	else
-		echo "$linked_file no exist, create new"
+		echo "$linked_file no exist, about to create new"
+		local directory=$(dirname "$linked_file")
+		if [ ! -e "$directory" ]; then
+			echo "$directory no such a directory!"
+			exit 1
+		fi
 		ln -s $FORCE $actual_file $linked_file
 	fi
 }
