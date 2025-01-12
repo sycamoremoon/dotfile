@@ -40,3 +40,24 @@ dotlink() {
 	ln -sf "$target_file" "$link_name"
 	ls -l $link_name
 }
+
+dotdiff() {
+	local file="$1"
+	local dotfile_dir="$HOME/.dotfile"
+	local target_file="$dotfile_dir/$file"
+	local full_pathfile="$PWD/$file"
+
+	if [ ! -f "$file" ]; then
+		echo "File is not existed!"
+		return 1
+	fi
+
+	if [[ "$file" == .* ]]; then
+		target_file="$dotfile_dir/${file:1}"
+	fi
+
+	diff "$full_pathfile" "$target_file"
+	if [ "$?" == 0 ]; then
+		echo "$full_pathfile and $target_file are the same"
+	fi
+}
