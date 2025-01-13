@@ -16,4 +16,11 @@ cd / && find  $DIR                                                     \
 -path "$DIR/test*" -prune -o                                       \
 -path "$DIR/example*" -prune -o                                       \
     -name "*.[chxsS]" -print >$HOME/.database/cscope/uboot/cscope.files
-# cscope -Rbqk -i $HOME/.database/cscope/uboot/cscope.files
+
+if [[ "$1" != "-S" ]]; then
+	cscope -Rbqk \
+		-i $HOME/.database/cscope/uboot/cscope.files \
+		-f $HOME/.database/cscope/uboot/cscope.out
+fi
+
+ls -lh $HOME/.database/cscope/uboot
