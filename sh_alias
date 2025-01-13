@@ -13,9 +13,31 @@ alias cdts="cd arch/riscv/boot/dts/sophgo"
 ########### ALIASING END ############
 
 chtags() {
-	local TAR=${1:-linux}
-	ln -sf "$HOME/database/ctags/${TAR}.tags" "$HOME/database/ctags/tags"
-	ls -l "$HOME/database/ctags/tags"
+	local target=${1:-linux}
+	local tag_file="$HOME/.database/ctags/${target}.tags"
+	local tag_link="$HOME/.database/ctags/tags"
+
+	if [ ! -f "$tag_file" ]; then
+		echo "$tag_file is not existed!"
+		return 1
+	fi
+
+	ln -sf "$tag_file" "$tag_link"
+	ls -l "$tag_link"
+}
+
+mycscope() {
+	local target="${1:-linux}"
+	local out_file="$HOME/.database/cscope/$target/cscope.out"
+
+	if [ ! -f "$out_file" ]; then
+		echo "$out_file is not existed!"
+		return 1
+	fi
+
+	echo "cscope -d -f $out_file"
+	sleep 0.4
+	cscope -d -f $out_file
 }
 
 dotlink() {
