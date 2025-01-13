@@ -14,4 +14,11 @@ cd / && find  $DIR                                                     \
 -path "$DIR/sphinx_latest*" -prune -o                                       \
 -path "$DIR/tools*" -prune -o                                       \
     -name "*.[chxsS]" -print >$HOME/.database/cscope/linux/cscope.files
-# cscope -Rbqk -i $HOME/.database/cscope/linux/cscope.files
+
+if [[ "$1" != "-S" ]]; then
+	cscope -Rbqk \
+		-i $HOME/.database/cscope/linux/cscope.files \
+		-f $HOME/.database/cscope/linux/cscope.out
+fi
+
+ls -lh $HOME/.database/cscope/linux
