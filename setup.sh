@@ -78,3 +78,6 @@ dotsetup config/msmtp/config
 # gdb
 dotsetup gdbinit
 dotsetup config/gdb/kdump.macro
+
+# database
+dotsetup database
