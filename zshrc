@@ -38,5 +38,9 @@ unsetopt equals
 
 source ~/.sh_alias
 
+# Some local settings which hard to unify
+[ -f ~/.zshrc_local ] && source ~/.zshrc_local
+
 ####### SOURCING SETTING END #########
+
 

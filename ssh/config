@@ -25,6 +25,11 @@ Host local-gentoo
   HostName 192.168.64.21
   User damon
 
+Host ubuntu
+  User root
+  HostName 101.76.247.152
+  KexAlgorithms +diffie-hellman-group1-sha1
+  HostKeyAlgorithms +ssh-rsa
 Host whale
   HostName 100.105.78.31
   User damon
