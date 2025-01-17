@@ -109,7 +109,7 @@ set nowrapscan
 " extend editing tools
 "---------------------
 set tags=tags
-set tag+=~/database/ctags/tags
+set tags+=$HOME/.database/ctags/tags
 set cscoperelative
 
 "CtrlP configure
