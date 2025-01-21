@@ -88,3 +88,50 @@ dotdiff() {
 		echo "$full_pathfile and $target_file are the same"
 	fi
 }
+
+closekb() {
+	local keyboard_id=$(xinput list | grep -i "AT Translated Set 2 keyboard" | sed 's/.*id=\([0-9]\+\).*/\1/')
+
+	if [ -n "$keyboard_id" ]; then
+		echo "Going to disable native keyboard with id: $keyboard_id"
+
+		for i in {3..1}; do
+			echo "Disable in $i seconds"
+			sleep 1
+		done
+
+		xinput set-prop $keyboard_id "Device Enabled" 0
+
+		if [ "$?" == 0 ]; then
+			echo "Disable native keyboard successfully"
+			# Store the keyboard id to a file
+			echo $keyboard_id > /tmp/__tmp_AT_Translated_Set_2_keyboard_id
+		else
+			echo "Failed to disable native keyboard"
+		fi
+
+	fi
+}
+
+openkb() {
+	local keyboard_id=$(cat /tmp/__tmp_AT_Translated_Set_2_keyboard_id)
+
+	if [ -n "$keyboard_id" ]; then
+		echo "Going to enable native keyboard with id: $keyboard_id"
+
+		for i in {3..1}; do
+			echo "Enable in $i seconds"
+			sleep 1
+		done
+
+		xinput set-prop $keyboard_id "Device Enabled" 1
+
+		if [ "$?" == 0 ]; then
+			rm -f /tmp/__tmp_AT_Translated_Set_2_keyboard_id
+			echo "Enable native keyboard successfully"
+		else
+			echo "Failed to enable native keyboard"
+		fi
+
+	fi
+}
