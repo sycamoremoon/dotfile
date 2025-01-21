@@ -17,6 +17,7 @@ export ZSH_THEME="robbyrussell"
 # Setting PATH for Python venv
 export PYTHONPATH="/home/damon/.local/venv/lib/python3.12/site-packages"
 export EDITOR='vim'
+export TERM=xterm-256color
 
 ########### VARIABLES END ###########
 
