@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR=$1
+DIR=$(realpath $1)
 TAR=$(basename $DIR)
 
 if [ ! -d "$DIR" ]; then
