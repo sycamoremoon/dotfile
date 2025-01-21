@@ -124,6 +124,10 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
+"jump options
+set jumpoptions=stack
+
 "nerdtree configure
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
@@ -133,6 +137,10 @@ nnoremap <C-f> :NERDTreeFind<CR>
 "--------------------
 " Misc configurations
 "--------------------
+" recognize file type
+autocmd BufRead,BufNewFile *.md *.markdown set filetype=markdown
+autocmd BufRead,BufNewFile *.S *.s *.asm *.d set filetype=asm
+autocmd BufRead,BufNewFile *.hex *.bin set filetype=hex
 
 " unbind keys
 map <C-a> <Nop>
@@ -199,7 +207,9 @@ Plug 'brookhong/cscope.vim'
 
 Plug 'preservim/nerdtree' " for file exploring
 
-syntax enable
-filetype plugin indent on
+Plug 'https://github.com/kien/ctrlp.vim.git' " CtrlP for file exploring
+
 Plug 'rust-lang/rust.vim' " for file exploring
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "fzf for fuzzy search
 call plug#end()
