@@ -15,9 +15,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # looking in $ZSH/themes/
 export ZSH_THEME="robbyrussell"
 # Setting PATH for Python venv
-export PYTHONPATH="/home/damon/.local/venv/lib/python3.12/site-packages"
+export PYTHONPATH="$HOME/.local/venv/lib/python3.12/site-packages"
 export EDITOR='vim'
 export TERM=xterm-256color
+# One Student One Chip New Processor Core
+export NPC_HOME="$HOME/ysyx-workbench/npc"
 
 ########### VARIABLES END ###########
 
