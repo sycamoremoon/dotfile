@@ -138,9 +138,10 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " Misc configurations
 "--------------------
 " recognize file type
-autocmd BufRead,BufNewFile *.md *.markdown set filetype=markdown
-autocmd BufRead,BufNewFile *.S *.s *.asm *.d set filetype=asm
-autocmd BufRead,BufNewFile *.hex *.bin set filetype=hex
+filetype plugin indent on
+autocmd BufRead,BufNewFile *.md,*.markdown set filetype=markdown
+autocmd BufRead,BufNewFile *.S,*.s,*.asm *.d set filetype=asm
+autocmd BufRead,BufNewFile *.hex,*.bin set filetype=hex
 
 " unbind keys
 map <C-a> <Nop>
