@@ -27,7 +27,7 @@ Host local-gentoo
 
 Host ubuntu
   User root
-  HostName 101.76.247.152
+  HostName 192.168.0.10
   KexAlgorithms +diffie-hellman-group1-sha1
   HostKeyAlgorithms +ssh-rsa
 Host whale
@@ -47,19 +47,29 @@ Host syca
   User hack
 
 Host santo
+  HostName 100.96.66.63
+  User riscv
+  Port 22
+  IdentityFile ~/.ssh/santo-id_ed25519
+
+Host santo-tinc
   HostName 10.0.6.21
   User damon
-	Port 22
-	IdentityFile ~/.ssh/santo-id_ed25519
+  Port 22
+  #IdentityFile ~/.ssh/santo-id_ed25519
 
 Host umach3
-	HostName 10.0.6.13
-	User damon
-	Port 22
-	IdentityFile ~/.ssh/mach_id_ed25519
+  HostName 10.0.6.13
+  User damon
+  Port 22
+  IdentityFile ~/.ssh/mach_id_ed25519
 
 Host umach5
-	HostName 10.0.6.15
-	User damon
-	Port 22
-	IdentityFile ~/.ssh/umach5_id_ed25519
+  HostName 10.0.6.15
+  User damon
+  Port 22
+  IdentityFile ~/.ssh/umach5_id_ed25519
+Host pikvm
+  HostName 100.123.25.69
+  User riscv
+  Port 22
