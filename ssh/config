@@ -6,23 +6,26 @@ Host *
 
 Host github.com
   AddKeysToAgent yes
-	User git
+  User git
   IdentityFile ~/.ssh/id_ed25519
 
 Host local-whale
   HostName 101.76.240.205
   User damon
+  IdentityFile ~/.ssh/whale_id_ed25519
 
 Host local-syca
   HostName 101.76.241.248
   User hack
+  IdentityFile ~/.ssh/calcu_id_ed25519
 
 Host local-calcu
   HostName 101.76.241.248
   User damon
+  IdentityFile ~/.ssh/calcu_id_ed25519
 
 Host local-gentoo
-  HostName 192.168.64.21
+  HostName 101.76.247.135
   User damon
 
 Host ubuntu
