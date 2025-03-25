@@ -144,3 +144,33 @@ openkb() {
 
 	fi
 }
+
+my_simple_web() {
+	SIMPLE_WEB=${1:-"$HOME/.dotfile/database/simple_server"}
+	ROOT_DIR=${2:-"$HOME/Resources"}
+	# tmp switch dir
+	(
+		cd "$SIMPLE_WEB" || { echo "Error: Cannot change directory to $SIMPLE_WEB"; exit 1; }
+
+		CERT_FILE="cert.pem"
+		KEY_FILE="key.pem"
+
+		if [[ ! -f "$CERT_FILE" || ! -f "$KEY_FILE" ]]; then
+			echo "Generating SSL certificate and key..."
+			openssl req -x509 -newkey rsa:4096 -keyout "$KEY_FILE" -out "$CERT_FILE" -days 365 -nodes -subj "/CN=localhost"
+		fi
+
+		python3 https_server.py --directory "$ROOT_DIR" --cert "$SIMPLE_WEB/$CERT_FILE" --key "$SIMPLE_WEB/$KEY_FILE"
+	)
+}
+
+my_simple_web_auth() {
+	SIMPLE_WEB=${1:-"$HOME/.dotfile/database/simple_server"}
+	# tmp switch dir
+	(
+		cd "$SIMPLE_WEB" || { echo "Error: Cannot change directory to $SIMPLE_WEB"; exit 1; }
+
+		echo "Running auth_config.py..."
+		python3 auth_config.py
+	)
+}
