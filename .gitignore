@@ -8,3 +8,9 @@ vim/undodir/*
 cscope.*
 database/ctags/*
 !database/ctags/gnt.sh
+
+# simple_web
+__pycache__
+key.pem
+cert.pem
+users.json
