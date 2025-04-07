@@ -16,6 +16,8 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="robbyrussell"
 export EDITOR='vim'
 export TERM=xterm-256color
+# ctags file location
+export MY_CTAGS_FILE="$HOME/.database/ctags/linux.tags"
 
 ########### VARIABLES END ###########
 

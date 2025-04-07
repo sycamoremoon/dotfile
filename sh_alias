@@ -24,15 +24,15 @@ alias cdtmp='pushd $(mktemp -d)'
 chtags() {
 	local target=${1:-linux}
 	local tag_file="$HOME/.database/ctags/${target}.tags"
-	local tag_link="$HOME/.database/ctags/tags"
 
 	if [ ! -f "$tag_file" ]; then
 		echo "$tag_file is not existed!"
 		return 1
 	fi
 
-	ln -sf "$tag_file" "$tag_link"
-	ls -l "$tag_link"
+	export MY_CTAGS_FILE="$tag_file"
+	echo "MY_CTAGS_FILE=$MY_CTAGS_FILE"
+	ls -lh "$tag_file"
 }
 
 mycscope() {
