@@ -43,12 +43,12 @@ endif
 " Enhance command-line completion
 set wildmenu
 set showcmd
-set tabstop=4
+set tabstop=8
 
 " Place tab to numbers of space
 " set expandtab
 
-set shiftwidth=4
+set shiftwidth=8
 set listchars=tab:>>,nbsp:~,trail:-,eol:$ " set list to see tabs and non-breakable spaces
 set scrolloff=5 " show lines above and below cursor (when possible)
 set hls "set highligt search
@@ -104,6 +104,10 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 "Disable searching loop
 set nowrapscan
+
+"Extra whitespace highlight
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\+/
 
 "---------------------
 " extend editing tools
