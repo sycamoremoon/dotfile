@@ -10,16 +10,29 @@ alias p="pwd"
 
 # Git
 alias gs="git status"
-alias git\ commit="git commit -s"
 
 # Other
 alias pip="pip3"
-alias cdts="cd arch/riscv/boot/dts/sophgo"
-alias rvmake="make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu-"
 alias qbat='command -v upower >/dev/null && upower -i $(upower -e | grep BAT)'
 alias cdtmp='pushd $(mktemp -d)'
+alias rvmake="make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu-"
+alias armake="make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu-"
 
 ########### ALIASING END ############
+
+cdts() {
+	local target=${1:-riscv}
+	cd arch/"$target"/boot/dts
+}
+
+forwardnet() {
+	local dst=${1:-enp0s20f0u6u1}
+	local src=${2:-enp0s13f0u4}
+	su -c "iptables -t nat -A POSTROUTING -o $src -j MASQUERADE;
+	iptables -A FORWARD -i $dst -o $src -j ACCEPT;
+	iptables -A FORWARD -o $dst -i $src -m state --state RELATED,ESTABLISHED -j ACCEPT;"
+
+}
 
 chtags() {
 	local target=${1:-linux}
