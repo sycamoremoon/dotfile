@@ -45,3 +45,5 @@ bind index,pager B sidebar-toggle-visible
 
 bind index,pager r group-chat-reply
 bind index,pager R reply
+
+source ~/.config/mutt/colors.rc
