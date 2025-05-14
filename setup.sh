@@ -70,9 +70,15 @@ dotsetup ssh/config
 
 # mail
 # setupmailbox sycamoremoon376@gmail.com
-dotsetup config/mutt/accounts/sycamoremoon376@gmail.com.muttrc
-dotsetup local/share/mutt-wizard/mutt-wizard.muttrc
+# dotsetup config/mutt/accounts/sycamoremoon376@gmail.com.muttrc
+# dotsetup local/share/mutt-wizard/mutt-wizard.muttrc
+dotsetup config/isyncrc
+dotsetup config/mailcap
 dotsetup config/mutt/muttrc
+dotsetup config/mutt/neomuttrc
+dotsetup config/mutt/gmail.rc
+dotsetup config/mutt/outlook.rc
+dotsetup config/mutt/mutt_oauth2.py
 dotsetup config/msmtp/config
 
 # gdb
