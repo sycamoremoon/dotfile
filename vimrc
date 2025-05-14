@@ -218,3 +218,6 @@ Plug 'rust-lang/rust.vim' " for file exploring
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "fzf for fuzzy search
 call plug#end()
+
+" Limit the width of the text in mutt emails to 72 characters.
+au BufRead /tmp/mutt-* set textwidth=72
