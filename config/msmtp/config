@@ -1,13 +1,15 @@
-account sycamoremoon376@gmail.com
+defaults
+auth on
+tls  on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account gmail
 host smtp.gmail.com
 port 587
+tls_starttls on
 from sycamoremoon376@gmail.com
 user sycamoremoon376@gmail.com
 passwordeval "pass sycamoremoon376@gmail.com"
-tls_starttls
-auth on
-tls on
-tls_trust_file	/etc/ssl/certs/ca-certificates.crt
-logfile /home/hack/.config/msmtp/msmtp.log
-account default : sycamoremoon376@gmail.com
+logfile ~/.config/msmtp/msmtp.log
 
+account default: gmail

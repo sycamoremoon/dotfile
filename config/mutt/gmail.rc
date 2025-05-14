@@ -1,0 +1,23 @@
+unset smtp_url
+unset smtp_oauth_refresh_command
+
+set folder              = $HOME/Mail/gmail
+set realname            = "Zixian Zeng"
+set from                = "sycamoremoon376@gmail.com"
+set ssl_force_tls       = yes
+set ssl_starttls        = yes
+set smtp_authenticators = "login"
+set sendmail            = "/usr/bin/msmtp -a gmail sycamoremoon376@gmail.com"
+
+set mbox_type           = Maildir
+set spoolfile           = +INBOX
+set postponed           = +[Gmail]/Drafts
+set trash               = +[Gmail]/Trash
+set record              = +[Gmail]/Sent\ Mail
+
+mailboxes               = +INBOX \
+                          +[Gmail]/Sent\ Mail \
+			  +[Gmail]/Drafts \
+			  +[Gmail]/Trash
+
+#account-hook $folder ""

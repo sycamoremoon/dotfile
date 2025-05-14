@@ -1,0 +1,57 @@
+# Account 1
+IMAPAccount gmail
+Host imap.gmail.com
+Port 993
+User sycamoremoon376@gmail.com
+PassCmd "pass sycamoremoon376@gmail.com"
+AuthMechs LOGIN
+TLSType IMAPS
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Path ~/Mail/gmail/
+Inbox ~/Mail/gmail/INBOX
+Subfolders Verbatim
+
+Channel sycamoremoon376@gmail.com
+Expunge Both
+Far :gmail-remote:
+Near :gmail-local:
+Patterns "[Gmail]/*" INBOX
+CopyArrivalDate yes
+Sync All
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+
+# Account 2
+IMAPAccount outlook
+Host outlook.office365.com
+Port 993
+User sycamoremoon376@outlook.com
+PassCmd "$HOME/.config/mutt/mutt_oauth2.py $HOME/.config/mutt/oauth2-outlook"
+TLSType IMAPS
+AuthMechs XOAUTH2
+
+IMAPStore outlook-remote
+Account outlook
+
+MaildirStore outlook-local
+Path ~/Mail/outlook/
+Inbox ~/Mail/outlook/INBOX
+SubFolders Verbatim
+
+Channel outlook
+Far :outlook-remote:
+Near :outlook-local:
+Patterns *
+Expunge both
+CopyArrivalDate yes
+Sync All
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no

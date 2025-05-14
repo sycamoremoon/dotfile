@@ -1,4 +1,47 @@
-# vim: filetype=neomuttrc
-source $HOME/.local/share/mutt-wizard/mutt-wizard.muttrc
-source $HOME/.config/mutt/accounts/sycamoremoon376@gmail.com.muttrc
-macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/sycamoremoon376@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to sycamoremoon376@gmail.com"
+# ACCOUNT2 outllook
+source ~/.config/mutt/outlook.rc
+folder-hook $folder 'source ~/.config/mutt/outlook.rc'
+macro index <f2> "<enter-command>unmailboxes *<enter><enter-command>\
+source ~/.config/mutt/outlook.rc<enter><sync-mailbox><change-folder>!<enter>"
+
+# ACCOUNT1 gmail
+source ~/.config/mutt/gmail.rc
+folder-hook $folder 'source ~/.config/mutt/gmail.rc'
+macro index <f1> "<enter-command>unmailboxes *<enter><enter-command>\
+source ~/.config/mutt/gmail.rc<enter><sync-mailbox><change-folder>!<enter>"
+
+macro index,pager gu "<sync-mailbox><enter-command>\
+unset wait_key<enter><shell-escape>mbsync -a<enter><enter-command>set wait_key<enter>" "Sync Mailbox"
+
+set mailcap_path        = "$HOME/.config/mailcap"
+auto_view text/html
+alternative_order text/plain text/html
+
+set charset             = "utf-8"
+set send_charset        = "utf-8"
+
+set sort                = threads
+set sort                = reverse-date
+set sort_aux            = last-date-received
+
+set sidebar_short_path
+set sidebar_folder_indent
+set sidebar_format      = "%B%* [%N / %S]"
+
+bind pager gg top
+bind pager G  bottom
+bind pager j  next-line
+bind pager k  previous-line
+
+bind index,browser gg first-entry
+bind index,browser G  last-entry
+bind index,browser j  next-entry
+bind index,browser k  previous-entry
+
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+bind index,pager \Co sidebar-open
+bind index,pager B sidebar-toggle-visible
+
+bind index,pager r group-chat-reply
+bind index,pager R reply

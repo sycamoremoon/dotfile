@@ -1,0 +1,20 @@
+set folder              = $HOME/Mail/outlook
+set realname            = "Damon"
+set from                = "sycamoremoon376@outlook.com"
+set ssl_force_tls       = yes
+set ssl_starttls        = yes
+set smtp_authenticators = "xoauth2"
+set smtp_url            = "smtp://$from@smtp.office365.com:587"
+set smtp_oauth_refresh_command = "$HOME/.config/mutt/mutt_oauth2.py $HOME/.config/mutt/oauth2-outlook"
+
+set mbox_type           = Maildir
+set spoolfile           = +INBOX
+set postponed           = +Drafts
+set trash               = +Junk
+set record              = +Sent
+
+mailboxes               = +INBOX \
+                          +Drafts \
+                          +Sent \
+                          +Junk \
+			  +Archive
