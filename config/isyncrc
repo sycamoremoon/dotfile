@@ -55,3 +55,32 @@ Create Both
 SyncState *
 MaxMessages 0
 ExpireUnread no
+
+# Account 3
+IMAPAccount syca
+Host mail.per1cycle.org
+Port 993
+User damon@syca.top
+PassCmd "pass damon@syca.top"
+AuthMechs LOGIN
+TLSType IMAPS
+
+IMAPStore syca-remote
+Account syca
+
+MaildirStore syca-local
+Path ~/Mail/syca/
+Inbox ~/Mail/syca/INBOX
+Subfolders Verbatim
+
+Channel damon@syca.top
+Expunge Both
+Far :syca-remote:
+Near :syca-local:
+Patterns *
+CopyArrivalDate yes
+Sync All
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
