@@ -43,3 +43,12 @@ source ~/.sh_alias
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
 
 ####### SOURCING SETTING END #########
+if [ -f "$HOME/.mail_alert" ]; then
+  echo
+  echo -e "\033[1;32m========== MAIL NOTIFICATION ==========\033[0m"
+  cat "$HOME/.mail_alert"
+  echo -e "\033[1;34mRun 'ack_mail' to dismiss this message.\033[0m"
+  echo -e "\033[1;35mRun 'info_mail' to see the detail.\033[0m"
+  echo -e "\033[1;32m=======================================\033[0m"
+  echo
+fi
