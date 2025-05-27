@@ -60,7 +60,7 @@ set tabstop=8
 set shiftwidth=8
 set listchars=tab:>>,nbsp:~,trail:-,eol:$ " set list to see tabs and non-breakable spaces
 set scrolloff=5 " show lines above and below cursor (when possible)
-set hls "set highligt search
+set hls "set highlight search
 
 " This setting makes search case-insensitive when all characters in the string
 " being searched are lowercase. However, the search becomes case-sensitive if
@@ -175,27 +175,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-" markdown
-"let g:markdown_fenced_languages = [
-    \ 'asm',
-    \ 'bash=sh',
-    \ 'c',
-    \ 'coffee',
-    \ 'erb=eruby',
-    \ 'javascript',
-    \ 'json',
-    \ 'perl',
-    \ 'python',
-    \ 'ruby',
-    \ 'yaml',
-    \ 'go',
-    \ 'racket',
-    \ 'haskell',
-    \ 'rust',
-\]
-"let g:markdown_syntax_conceal = 0
-"let g:markdown_folding = 1
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
