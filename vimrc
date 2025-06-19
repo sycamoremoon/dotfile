@@ -118,6 +118,9 @@ set nowrapscan
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\+/
 
+" paste mode
+set pastetoggle=<F2> " insert mode
+
 "---------------------
 " extend editing tools
 "---------------------
