@@ -79,7 +79,7 @@ set hidden
 set shortmess+=I
 
 " Show line numbers.
-set number
+set nonumber
 
 " This enables relative line numbering mode. With both number and
 " relativenumber enabled, the current line shows the true line number, while
@@ -87,7 +87,7 @@ set number
 " This is useful because you can tell, at a glance, what count is needed to
 " jump up or down to a particular line, by {count}k to go up or {count}j to go
 " down.
-set relativenumber
+set norelativenumber
 
 " Always show the status line at the bottom, if you only have more windows open.
 set laststatus=1
