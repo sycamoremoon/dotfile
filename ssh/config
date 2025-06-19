@@ -33,9 +33,11 @@ Host ubuntu
   HostName 192.168.0.10
   KexAlgorithms +diffie-hellman-group1-sha1
   HostKeyAlgorithms +ssh-rsa
+
 Host whale
-  HostName 100.105.78.31
+  HostName 100.101.254.43
   User damon
+  IdentityFile ~/.ssh/whale_id_ed25519
 
 Host gentoo
   HostName 100.92.136.90
@@ -44,10 +46,12 @@ Host gentoo
 Host calcu
   HostName 100.84.123.123
   User damon
+  IdentityFile ~/.ssh/calcu_id_ed25519
 
 Host syca
   HostName 100.98.146.90
   User hack
+  IdentityFile ~/.ssh/calcu_id_ed25519
 
 Host santo
   HostName 100.96.66.63
@@ -72,6 +76,7 @@ Host umach5
   User damon
   Port 22
   IdentityFile ~/.ssh/umach5_id_ed25519
+
 Host pikvm
   HostName 100.123.25.69
   User riscv
