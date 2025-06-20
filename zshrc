@@ -31,6 +31,7 @@ source $ZSH/oh-my-zsh.sh
 
 #Set vim-mode in shell
 bindkey -v
+set -o vi
 
 #Ignore command history start with space
 setopt HIST_IGNORE_SPACE
