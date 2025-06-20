@@ -38,15 +38,6 @@ dotsetup() {
 	fi
 }
 
-setupmailbox() {
-	local account=$1
-	local force=$2
-	ln -s$force $HOME/.local/share/mail/$account/{\[Gmail\]/Drafts,Drafts}
-	ln -s$force $HOME/.local/share/mail/$account/{\[Gmail\]/Spam,Junk}
-	ln -s$force $HOME/.local/share/mail/$account/{\[Gmail\]/Sent\ Mail,Sent}
-	ln -s$force $HOME/.local/share/mail/$account/{\[Gmail\]/Trash,Trash}
-}
-
 # git
 # dotsetup gitconfig
 
@@ -68,7 +59,6 @@ dotsetup vim/colors/solarized.vim
 dotsetup ssh/config
 
 # mail
-# setupmailbox sycamoremoon376@gmail.com
 dotsetup config/isyncrc
 dotsetup config/mailcap
 dotsetup config/mutt/muttrc
