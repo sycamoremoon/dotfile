@@ -1,0 +1,43 @@
+clear Control
+clear mod1
+clear lock
+
+keycode  66 = Control_L
+keycode  64 = NoSymbol
+keycode  37 = Alt_L
+keycode 108 = NoSymbol
+keycode 105 = Alt_R
+
+!Disable arrow key and page key in thnikpad
+keycode 111 = NoSymbol
+keycode 113 = NoSymbol
+keycode 116 = NoSymbol
+keycode 166 = NoSymbol
+
+!Remap the page down and arrow right to mode_switch
+keycode 114 = Mode_switch
+keycode 167 = Mode_switch
+
+!Remap keys like HHKB keyboard layout
+keycode  34 = bracketleft braceleft Up
+keycode  61 = slash question Down
+keycode  47 = semicolon colon Left
+keycode  48 = apostrophe quotedbl Right
+keycode  22 = backslash bar backslash bar
+keycode  51 = BackSpace
+keycode  23 = Tab ISO_Left_Tab Caps_Lock
+keycode  10 = 1 exclam F1
+keycode  11 = 2 at F2
+keycode  12 = 3 numbersign F3
+keycode  13 = 4 dollar F4
+keycode  14 = 5 percent F5
+keycode  15 = 6 asciicircum F6
+keycode  16 = 7 ampersand F7
+keycode  17 = 8 asterisk F8
+keycode  18 = 9 parenleft F9
+keycode  19 = 0 parenright F10
+keycode  20 = minus underscore F11
+keycode  21 = equal plus F12
+
+add Control = Control_L Control_R
+add mod1    = Alt_L Alt_R
