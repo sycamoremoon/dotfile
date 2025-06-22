@@ -39,7 +39,7 @@ set spellfile=~/.vim/spell/en.utf-8.add
 " Basic editing config
 "---------------------
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
+set clipboard=autoselectplus
 
 " Set up vim history
 set history=1000
