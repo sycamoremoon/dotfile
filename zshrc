@@ -5,6 +5,10 @@ PATH="$HOME/.local/venv/bin:${PATH}"
 
 PATH="${PATH}:$HOME/.local/bin"
 
+PATH="$JAVA_HOME/bin:${PATH}"
+
+PATH="$HOME/.cargo/bin:${PATH}"
+
 ######## EXCUABLE PATH END #########
 
 ############ VARIABLES #############
@@ -18,8 +22,6 @@ export EDITOR='vim'
 export TERM=xterm-256color
 # ctags file location
 export MY_CTAGS_FILE="$HOME/.database/ctags/linux.tags"
-export JAVA_HOME=$(java-config --jdk-home)
-export PATH="$JAVA_HOME/bin:$PATH"
 
 ########### VARIABLES END ###########
 
