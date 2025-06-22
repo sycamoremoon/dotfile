@@ -16,6 +16,7 @@ keycode 166 = NoSymbol
 
 !Remap the page down and arrow right to mode_switch
 keycode 114 = Mode_switch
+keycode 115 = Mode_switch
 keycode 167 = Mode_switch
 
 !Remap keys like HHKB keyboard layout
