@@ -27,13 +27,16 @@ let g:solarized_termcolors=256
 colorscheme solarized
 
 " Spelling check highlight
-highlight SpellBad cterm=underline ctermfg=Red guifg=Red gui=undercurl
+highlight SpellBad cterm=underline ctermfg=DarkMagenta guifg=DarkMagenta gui=undercurl
 highlight SpellCap cterm=underline ctermfg=Yellow guifg=Yellow gui=undercurl
 highlight SpellRare cterm=underline ctermfg=Magenta guifg=Magenta gui=undercurl
 highlight SpellLocal cterm=underline ctermfg=Cyan guifg=Cyan gui=undercurl
 
 nnoremap <leader>sp :set spell!<CR>:echo "Spell check: " . (&spell ? "ON" : "OFF")<CR>
 set spellfile=~/.vim/spell/en.utf-8.add
+set spelllang=en
+set spelloptions+=camel
+set spell
 
 "---------------------
 " Basic editing config
