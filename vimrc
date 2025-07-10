@@ -211,7 +211,12 @@ Plug 'https://github.com/kien/ctrlp.vim.git' " CtrlP for file exploring
 Plug 'rust-lang/rust.vim' " for file exploring
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "fzf for fuzzy search
+
+Plug 'embear/vim-localvimrc' " source local .lvimrc file in current dir
 call plug#end()
 
 " Limit the width of the text in mutt emails to 72 characters.
 au BufRead /tmp/mutt-* set textwidth=72
+
+"embear/vim-localvimrc config
+let localvimrc_ask = 0
