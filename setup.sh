@@ -66,6 +66,7 @@ dotsetup config/mutt/neomuttrc
 dotsetup config/mutt/gmail.rc
 dotsetup config/mutt/syca.rc
 dotsetup config/mutt/outlook.rc
+dotsetup config/mutt/syca.rc
 dotsetup config/mutt/mutt_oauth2.py
 dotsetup config/mutt/colors.rc
 dotsetup config/msmtp/config
@@ -81,3 +82,6 @@ dotsetup database
 # dotsetup xinitrc
 # dotsetup Xmodmap
 # dotsetup config/i3/config
+
+# local scripts
+dotsetup local/bin/gbk2utf8
