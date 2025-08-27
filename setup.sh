@@ -62,11 +62,8 @@ dotsetup ssh/config
 dotsetup config/isyncrc
 dotsetup config/mailcap
 dotsetup config/mutt/muttrc
-dotsetup config/mutt/neomuttrc
 dotsetup config/mutt/gmail.rc
-dotsetup config/mutt/syca.rc
 dotsetup config/mutt/outlook.rc
-dotsetup config/mutt/syca.rc
 dotsetup config/mutt/mutt_oauth2.py
 dotsetup config/mutt/colors.rc
 dotsetup config/msmtp/config
