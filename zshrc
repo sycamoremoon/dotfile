@@ -1,8 +1,5 @@
 ########## EXCUABLE PATH ###########
 
-# Setting PATH for Python
-PATH="$HOME/.local/venv/bin:${PATH}"
-
 PATH="${PATH}:$HOME/.local/bin"
 
 PATH="$JAVA_HOME/bin:${PATH}"
