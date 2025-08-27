@@ -9,6 +9,21 @@ Host github.com
   User git
   IdentityFile ~/.ssh/id_ed25519
 
+Host gitee.com
+  AddKeysToAgent yes
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+
+Host git.onfoo.top
+  AddKeysToAgent yes
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+
+Host server
+  HostName 35.212.140.200
+  User damon
+  IdentityFile ~/.ssh/gcp_id_ed25519
+
 Host local-whale
   HostName 101.76.240.205
   User damon
@@ -27,6 +42,11 @@ Host local-calcu
 Host local-gentoo
   HostName 192.168.64.21
   User damon
+
+Host local-chill
+  HostName 101.76.249.82
+  User hack
+  IdentityFile ~/.ssh/chill_id_ed25519
 
 Host ubuntu
   User root
