@@ -1,20 +1,20 @@
-# ACCOUNT3 disroot
-source ~/.config/mutt/disroot.rc
-folder-hook $folder 'source ~/.config/mutt/disroot.rc'
-macro index <f2> "<enter-command>unmailboxes *<enter><enter-command>\
-source ~/.config/mutt/disroot.rc<enter><sync-mailbox><change-folder>!<enter>"
-
-# ACCOUNT2 outllook
-source ~/.config/mutt/outlook.rc
-folder-hook $folder 'source ~/.config/mutt/outlook.rc'
-macro index <f2> "<enter-command>unmailboxes *<enter><enter-command>\
-source ~/.config/mutt/outlook.rc<enter><sync-mailbox><change-folder>!<enter>"
-
 # ACCOUNT1 gmail
 source ~/.config/mutt/gmail.rc
 folder-hook $folder 'source ~/.config/mutt/gmail.rc'
 macro index <f1> "<enter-command>unmailboxes *<enter><enter-command>\
 source ~/.config/mutt/gmail.rc<enter><sync-mailbox><change-folder>!<enter>"
+
+# ACCOUNT2 outllook
+#source ~/.config/mutt/outlook.rc
+#folder-hook $folder 'source ~/.config/mutt/outlook.rc'
+#macro index <f2> "<enter-command>unmailboxes *<enter><enter-command>\
+#source ~/.config/mutt/outlook.rc<enter><sync-mailbox><change-folder>!<enter>"
+
+# ACCOUNT3 disroot
+source ~/.config/mutt/disroot.rc
+folder-hook $folder 'source ~/.config/mutt/disroot.rc'
+macro index <f2> "<enter-command>unmailboxes *<enter><enter-command>\
+source ~/.config/mutt/disroot.rc<enter><sync-mailbox><change-folder>!<enter>"
 
 macro index,pager gU "<sync-mailbox><enter-command>\
 unset wait_key<enter><shell-escape>mbsync -a<enter><enter-command>set wait_key<enter>" "Sync Mailbox"
