@@ -20,4 +20,7 @@ mailboxes               = +INBOX \
 			  +[Gmail]/Drafts \
 			  +[Gmail]/Trash
 
+macro index,pager gu "<sync-mailbox><enter-command>\
+unset wait_key<enter><shell-escape>mbsync sycamoremoon376@gmail.com<enter><enter-command>set wait_key<enter>" "Sync gmail"
+
 #account-hook $folder ""
