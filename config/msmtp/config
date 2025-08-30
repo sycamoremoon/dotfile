@@ -21,4 +21,13 @@ user zzixian@disroot.org
 passwordeval "pass zzixian@disroot.org"
 logfile ~/.config/msmtp/msmtp.log
 
+account sdu
+host smtp.vip.163.com
+port 465
+tls_starttls off
+from 202200120267.sdu@vip.163.com
+user 202200120267.sdu@vip.163.com
+passwordeval "pass 202200120267.sdu@vip.163.com"
+logfile ~/.config/msmtp/msmtp.log
+
 account default: disroot

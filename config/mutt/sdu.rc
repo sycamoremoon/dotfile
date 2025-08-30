@@ -1,0 +1,28 @@
+unset smtp_url
+unset smtp_oauth_refresh_command
+
+set folder              = $HOME/Mail/sdu
+set realname            = "Damon"
+set from                = "202200120267.sdu@vip.163.com"
+set ssl_force_tls       = yes
+set ssl_starttls        = yes
+set smtp_authenticators = "login"
+set sendmail            = "/usr/bin/msmtp -a sdu 202200120267.sdu@vip.163.com"
+
+set mbox_type           = Maildir
+set spoolfile           = +INBOX
+set postponed           = +草稿箱
+set trash               = +垃圾邮件
+set record              = +已发送
+
+mailboxes               = +INBOX \
+			  +草稿箱 \
+			  +垃圾邮件 \
+			  +已发送 \
+			  +病毒文件夹 \
+			  +山大邮箱
+
+macro index,pager gu "<sync-mailbox><enter-command>\
+unset wait_key<enter><shell-escape>mbsync zzixian@disroot.org<enter><enter-command>set wait_key<enter>" "Sync sdu"
+
+#account-hook $folder ""

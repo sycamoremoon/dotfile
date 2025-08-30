@@ -84,3 +84,32 @@ Create Both
 SyncState *
 MaxMessages 0
 ExpireUnread no
+
+# Account 4
+IMAPAccount sdu
+Host imap.vip.163.com
+Port 993
+User 202200120267.sdu@vip.163.com
+PassCmd "pass 202200120267.sdu@vip.163.com"
+AuthMechs LOGIN
+TLSType IMAPS
+
+IMAPStore sdu-remote
+Account sdu
+
+MaildirStore sdu-local
+Path ~/Mail/sdu/
+Inbox ~/Mail/sdu/INBOX
+Subfolders Verbatim
+
+Channel 202200120267.sdu@vip.163.com
+Expunge Both
+Far :sdu-remote:
+Near :sdu-local:
+Patterns *
+CopyArrivalDate yes
+Sync All
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no

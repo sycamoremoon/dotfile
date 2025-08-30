@@ -16,6 +16,15 @@ folder-hook $folder 'source ~/.config/mutt/disroot.rc'
 macro index <f2> "<enter-command>unmailboxes *<enter><enter-command>\
 source ~/.config/mutt/disroot.rc<enter><sync-mailbox><change-folder>!<enter>"
 
+# ACCOUNT4 sdu
+source ~/.config/mutt/sdu.rc
+folder-hook $folder 'source ~/.config/mutt/sdu.rc'
+macro index <f2> "<enter-command>unmailboxes *<enter><enter-command>\
+source ~/.config/mutt/sdu.rc<enter><sync-mailbox><change-folder>!<enter>"
+
+# default account
+source ~/.config/mutt/disroot.rc
+
 macro index,pager gU "<sync-mailbox><enter-command>\
 unset wait_key<enter><shell-escape>mbsync -a<enter><enter-command>set wait_key<enter>" "Sync Mailbox"
 
