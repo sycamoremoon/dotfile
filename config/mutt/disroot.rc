@@ -1,0 +1,27 @@
+unset smtp_url
+unset smtp_oauth_refresh_command
+
+set folder              = $HOME/Mail/disroot
+set realname            = "Zixian Zeng"
+set from                = "zzixian@disroot.org"
+set ssl_force_tls       = yes
+set ssl_starttls        = yes
+set smtp_authenticators = "login"
+set sendmail            = "/usr/bin/msmtp -a disroot zzixian@disroot.org"
+
+set mbox_type           = Maildir
+set spoolfile           = +INBOX
+set postponed           = +Drafts
+set trash               = +Trash
+set record              = +Sent
+
+mailboxes               = +INBOX \
+                          +Sent \
+                         +Drafts \
+                         +Trash \
+                         +Junk
+
+macro index,pager gu "<sync-mailbox><enter-command>\
+unset wait_key<enter><shell-escape>mbsync zzixian@disroot.org<enter><enter-command>set wait_key<enter>" "Sync disroot"
+
+#account-hook $folder ""

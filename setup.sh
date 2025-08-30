@@ -63,6 +63,7 @@ dotsetup config/isyncrc
 dotsetup config/mailcap
 dotsetup config/mutt/muttrc
 dotsetup config/mutt/gmail.rc
+dotsetup config/mutt/disroot.rc
 dotsetup config/mutt/outlook.rc
 dotsetup config/mutt/mutt_oauth2.py
 dotsetup config/mutt/colors.rc

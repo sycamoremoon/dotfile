@@ -1,3 +1,9 @@
+# ACCOUNT3 disroot
+source ~/.config/mutt/disroot.rc
+folder-hook $folder 'source ~/.config/mutt/disroot.rc'
+macro index <f2> "<enter-command>unmailboxes *<enter><enter-command>\
+source ~/.config/mutt/disroot.rc<enter><sync-mailbox><change-folder>!<enter>"
+
 # ACCOUNT2 outllook
 source ~/.config/mutt/outlook.rc
 folder-hook $folder 'source ~/.config/mutt/outlook.rc'

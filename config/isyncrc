@@ -56,3 +56,31 @@ SyncState *
 MaxMessages 0
 ExpireUnread no
 
+# Account 3
+IMAPAccount disroot
+Host disroot.org
+Port 993
+User zzixian@disroot.org
+PassCmd "pass zzixian@disroot.org"
+AuthMechs LOGIN
+TLSType IMAPS
+
+IMAPStore disroot-remote
+Account disroot
+
+MaildirStore disroot-local
+Path ~/Mail/disroot/
+Inbox ~/Mail/disroot/INBOX
+Subfolders Verbatim
+
+Channel zzixian@disroot.org
+Expunge Both
+Far :disroot-remote:
+Near :disroot-local:
+Patterns *
+CopyArrivalDate yes
+Sync All
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
