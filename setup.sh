@@ -43,6 +43,7 @@ dotsetup() {
 
 # shell
 dotsetup zshrc
+dotsetup bash_profile
 dotsetup sh_alias
 
 # tmux
