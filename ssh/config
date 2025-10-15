@@ -19,9 +19,9 @@ Host git.onfoo.top
   User git
   IdentityFile ~/.ssh/id_ed25519
 
-Host server
-  HostName 35.212.140.200
-  User damon
+Host racknerd
+  HostName 172.245.126.140
+  User root
   IdentityFile ~/.ssh/gcp_id_ed25519
 
 Host local-whale
@@ -29,75 +29,28 @@ Host local-whale
   User damon
   IdentityFile ~/.ssh/whale_id_ed25519
 
+	Host whale
+	  HostName 100.101.254.43
+	  User damon
+	  IdentityFile ~/.ssh/whale_id_ed25519
+
 Host local-syca
   HostName 101.76.241.248
   User hack
   IdentityFile ~/.ssh/calcu_id_ed25519
 
-Host local-calcu
-  HostName 101.76.241.248
-  User damon
-  IdentityFile ~/.ssh/calcu_id_ed25519
+	Host calcu
+	  HostName 100.98.146.90
+	  User hack
+	  IdentityFile ~/.ssh/calcu_id_ed25519
 
-Host local-gentoo
-  HostName 192.168.64.21
-  User damon
-
-Host local-chill
-  HostName 101.76.249.82
-  User hack
-  IdentityFile ~/.ssh/chill_id_ed25519
-
-Host ubuntu
-  User root
-  HostName 192.168.0.10
-  KexAlgorithms +diffie-hellman-group1-sha1
-  HostKeyAlgorithms +ssh-rsa
-
-Host whale
-  HostName 100.101.254.43
-  User damon
-  IdentityFile ~/.ssh/whale_id_ed25519
-
-Host gentoo
-  HostName 100.92.136.90
-  User damon
-
-Host calcu
-  HostName 100.84.123.123
-  User damon
-  IdentityFile ~/.ssh/calcu_id_ed25519
-
-Host syca
-  HostName 100.98.146.90
-  User hack
-  IdentityFile ~/.ssh/calcu_id_ed25519
-
-Host santo
-  HostName 100.96.66.63
-  User riscv
-  Port 22
-  IdentityFile ~/.ssh/santo-id_ed25519
-
-Host santo-tinc
-  HostName 10.0.6.21
-  User damon
-  Port 22
-  #IdentityFile ~/.ssh/santo-id_ed25519
-
-Host umach3
-  HostName 10.0.6.13
-  User damon
-  Port 22
-  IdentityFile ~/.ssh/mach_id_ed25519
-
-Host umach5
-  HostName 10.0.6.15
-  User damon
-  Port 22
-  IdentityFile ~/.ssh/umach5_id_ed25519
+	Host morise
+	  HostName 100.94.213.93
+	  User hack
+	  IdentityFile ~/.ssh/calcu_id_ed25519
 
 Host pikvm
   HostName 100.123.25.69
   User riscv
   Port 22
+  IdentityFile ~/.ssh/santo-id_ed25519
