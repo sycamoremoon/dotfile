@@ -13,26 +13,8 @@ set nocompatible
 "------------------
 " Syntax and indent
 "------------------
-syntax on " turn on syntax highlighting
-
 set showmatch " show matching braces when text indicator is over them
 
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
-
-let g:solarized_termcolors=256
-colorscheme solarized
-
-" Spelling check highlight
-highlight SpellBad cterm=underline ctermfg=DarkMagenta guifg=DarkMagenta gui=undercurl
-highlight SpellCap cterm=underline ctermfg=Yellow guifg=Yellow gui=undercurl
-highlight SpellRare cterm=underline ctermfg=Magenta guifg=Magenta gui=undercurl
-highlight SpellLocal cterm=underline ctermfg=Cyan guifg=Cyan gui=undercurl
-
-nnoremap <leader>sp :set spell!<CR>:echo "Spell check: " . (&spell ? "ON" : "OFF")<CR>
 set spellfile=~/.vim/spell/en.utf-8.add
 set spelllang=en
 set spelloptions+=camel
@@ -64,6 +46,7 @@ set shiftwidth=8
 set listchars=tab:>>,nbsp:~,trail:-,eol:$ " set list to see tabs and non-breakable spaces
 set scrolloff=5 " show lines above and below cursor (when possible)
 set hls "set highlight search
+set cursorline " Highlight current line
 
 " This setting makes search case-insensitive when all characters in the string
 " being searched are lowercase. However, the search becomes case-sensitive if
@@ -108,21 +91,25 @@ set incsearch
 " sometimes be convenient.
 " set mouse=nvi
 
-"leaderkey
-"let leadermap=
-
-" Quick search for selected text in visual mode press "//"
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
-
 "Disable searching loop
 set nowrapscan
 
-"Extra whitespace highlight
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\+/
-
 " paste mode
 set pastetoggle=<F2> " insert mode
+
+" Auto change directory
+set autochdir
+
+"jump options
+set jumpoptions=stack
+
+" disable audible bell
+set noerrorbells visualbell t_vb=
+
+" open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+set background=dark
 
 "---------------------
 " extend editing tools
@@ -131,28 +118,25 @@ set tags=tags
 set tags+=$MY_CTAGS_FILE
 set cscoperelative
 
-"CtrlP configure
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+let g:solarized_termcolors=256
+colorscheme solarized
 
-"jump options
-set jumpoptions=stack
+syntax on " turn on syntax highlighting
+" Spelling check highlight
+highlight SpellBad cterm=underline ctermfg=DarkMagenta guifg=DarkMagenta gui=undercurl
+highlight SpellCap cterm=underline ctermfg=Yellow guifg=Yellow gui=undercurl
+highlight SpellRare cterm=underline ctermfg=Magenta guifg=Magenta gui=undercurl
+highlight SpellLocal cterm=underline ctermfg=Cyan guifg=Cyan gui=undercurl
 
-"nerdtree configure
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-"
+nnoremap <leader>sp :set spell!<CR>:echo "Spell check: " . (&spell ? "ON" : "OFF")<CR>
+
+"Extra whitespace highlight
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\+/
+
+" Quick search for selected text in visual mode press "//"
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 "--------------------
 " Misc configurations
 "--------------------
@@ -163,18 +147,9 @@ autocmd BufRead,BufNewFile *.S,*.s,*.asm,*.d set filetype=asm
 autocmd BufRead,BufNewFile *.hex,*.bin set filetype=hex
 
 " unbind keys
-map <C-a> <Nop>
-map <C-x> <Nop>
 map <C-q> <Nop>
 " Unbind some useless/annoying default key bindings.
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
-
-" disable audible bell
-set noerrorbells visualbell t_vb=
-
-" open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
 
 " quicker window movement
 nnoremap <C-j> <C-w>j
@@ -182,12 +157,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Try to prevent bad habits like using the arrow keys for movement. This is
-" not the only possible bad habit. For example, holding down the h/j/k/l keys
-" for movement, rather than using more efficient movement commands, is also a
-" bad habit. The former is enforceable through a .vimrc, while we don't know
-" how to prevent the latter.
-" Do this in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
@@ -198,25 +167,22 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
+" Limit the width of the text in mutt emails to 72 characters.
+au BufRead /tmp/mutt-* set textwidth=72
+
 " user plugin
 call plug#begin()
-Plug 'godlygeek/tabular' " for format text
-
-Plug 'brookhong/cscope.vim'
-
 Plug 'preservim/nerdtree' " for file exploring
 
-Plug 'https://github.com/kien/ctrlp.vim.git' " CtrlP for file exploring
-
-Plug 'rust-lang/rust.vim' " for file exploring
-
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "fzf for fuzzy search
+Plug 'junegunn/fzf.vim'
 
 Plug 'embear/vim-localvimrc' " source local .lvimrc file in current dir
 call plug#end()
 
-" Limit the width of the text in mutt emails to 72 characters.
-au BufRead /tmp/mutt-* set textwidth=72
-
 "embear/vim-localvimrc config
 let localvimrc_ask = 0
+
+"nerdtree configure
+nnoremap <C-n> :NERDTreeFind<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
