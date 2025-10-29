@@ -1,18 +1,19 @@
 ########## EXCUABLE PATH ###########
 
-PATH="${PATH}:$HOME/.local/bin"
+#PATH="${PATH}:$HOME/.local/bin"
 
 ######## EXCUABLE PATH END #########
 
 ############ VARIABLES #############
 
-export PATH
 export EDITOR='vim'
 export TERM=xterm-256color
 # ctags file location
 export MY_CTAGS_FILE="$HOME/.database/ctags/linux.tags"
 #To avoid saving consecutive identical commands, and commands that start with a space
 export HISTCONTROL=ignoreboth
+export HISTFILESIZE=12000
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 ########### VARIABLES END ###########
 
@@ -20,6 +21,8 @@ export HISTCONTROL=ignoreboth
 
 #Set vim-mode in shell
 set -o vi
+
+shopt -s histappend # Avoid history overwrite
 
 source <(fzf --bash)
 
